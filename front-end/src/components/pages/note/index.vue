@@ -1,10 +1,16 @@
 <template>
-    <div class='note-index' :class="[getTheme]">
-        <n-header @menus='showMenus'></n-header>
-        <section class='note-main'>
+    <div class="note-index" :class="[getTheme]">
+        <n-header @menus="menus='menus'"></n-header>
+        <section class="note-main">
             main
-            <n-sidebar :is-show='menus'></n-sidebar>
+            <n-sidebar 
+                :is-show="menus==='menus'"
+                @switchTheme="menus='theme'"
+                @editData="menus='editdata'"
+            ></n-sidebar>
         </section>
+        <n-theme :is-show="menus==='theme'"></n-theme>
+        <n-editdata :is-show="menus==='editdata'"></n-editdata>
     </div>
 </template>
 
@@ -12,16 +18,18 @@
 <script>
 import nHeader from './header.vue';
 import nSidebar from './sidebar.vue';
+import nTheme from './menu-theme.vue';
+import nEditdata from './menu-editdata.vue';
 
 export default {
     name: 'note-index',
     data: function () {
         return {
-            menus: false
+            menus: ''
         }
     },
     components: {
-        nHeader, nSidebar
+        nHeader, nSidebar, nTheme, nEditdata
     },
     created: function () {
         console.log('--- note-index ---');
@@ -33,11 +41,7 @@ export default {
         }
     },
     methods: {
-        showMenus: function(){
-            var _this = this;
 
-            _this.menus = !_this.menus;
-        }
     }
 }
 </script>

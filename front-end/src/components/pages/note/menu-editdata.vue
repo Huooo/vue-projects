@@ -1,11 +1,11 @@
 <template>
     <div class="menu-sidebar" :class="{'fade-in': isShow}">
         <ul class='menu-lists'>
-            <li><button @click='$emit("switchTheme")' class='menu-btn'>切换主题</button></li>
-            <li><button class='menu-btn'>下载数据</button></li>
-            <li><button class='menu-btn'>导入数据</button></li>
-            <li><button @click='$emit("editData")' class='menu-btn'>编辑数据</button></li>
-            <li><button class='menu-btn'>清空数据</button></li>
+            <li><button class='menu-btn'>data</button></li>
+            <li><button class='menu-btn'>data</button></li>
+            <li><button class='menu-btn'>data</button></li>
+            <li><button class='menu-btn'>data</button></li>
+            <li><button class='menu-btn'>data</button></li>
         </ul>
     </div>
 </template>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    name: 'note-sidebar',
+    name: 'note-theme',
     data: function(){
         return {}
     },
@@ -24,9 +24,7 @@ export default {
 
     },
     methods: {
-        switchTheme: function () {
-            this.$emit("switchTheme");
-        }
+        
     }
 }
 </script>
