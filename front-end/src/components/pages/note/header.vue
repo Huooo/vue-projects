@@ -1,6 +1,6 @@
 <template>
     <header class="">
-        <h1>记事本 <a class="t-btn" @click='showMenus'><span class='icon-menu'></span></a></h1>
+        <h1>记事本 <a class="t-btn" @click="$emit('menus')"><span class='icon-menu'></span></a></h1>
     </header>
 </template>
 
@@ -12,9 +12,7 @@ export default {
         return {}
     },
     methods: {
-        showMenus: function(){
-            this.$emit('menus');
-        }
+        
     }
 }
 </script>
@@ -33,7 +31,7 @@ export default {
 */
 
 header{
-    position: relative;z-index: 100;
+    position: relative;z-index: 1;
     width: 100%;height: 70px;
     
     h1{

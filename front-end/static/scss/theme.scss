@@ -26,11 +26,11 @@ $cyan_hover_color : #1facb4;
             }
         }
     }
-    .event-add{
-        .n-input:focus {
+    .lists-add{
+        .lists-add-input:focus {
             border-color: $bg;
         }
-        .add-btn{
+        .lists-add-submit{
             border:1px solid $bg;
             background: $bg;
             &:hover{
@@ -38,11 +38,11 @@ $cyan_hover_color : #1facb4;
             }
         }
     }
-    .event-content {
-        .event-tab {
+    .note-lists {
+        .lists-tab {
             background: $bg;
         }
-        .event-box{
+        .lists-wrapper{
             .event-list{
                 .cancel-btn:hover{
                     border: 1px solid $bg;
@@ -60,8 +60,8 @@ $cyan_hover_color : #1facb4;
             }
         }
     }
-    .dialog{
-        .dialog-btns {
+    .menu-confirm{
+        .confirm-btns {
             .sure-btn{
                 border: 1px solid $bg;
                 background: $bg;

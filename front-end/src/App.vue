@@ -2,6 +2,7 @@
   <div id="app">
     <img class='vue-logo' src="./assets/logo.png"><hr>
     <router-view></router-view>
+    <hr>
   </div>
 </template>
 
@@ -23,7 +24,7 @@ ul,li,ol,li{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 .vue-logo{ width: 100px; }
 .font-c-vue{

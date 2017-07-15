@@ -7,13 +7,14 @@
             <li><button class='menu-btn'>data</button></li>
             <li><button class='menu-btn'>data</button></li>
         </ul>
+        <span @click="$emit('backMenus')" class="menu-back">BACK</span>
     </div>
 </template>
 
 
 <script>
 export default {
-    name: 'note-theme',
+    name: 'note-editdata',
     data: function(){
         return {}
     },
@@ -43,7 +44,7 @@ export default {
 */
 .menu-sidebar{
     position: absolute;top: 0;left: 0;
-    width: 300px;height: 100%;padding-top: 150px;
+    width: 300px;height: 100%;
     color: #fff;
     background-color: rgba(0,0,0,.5);
     transform: translateX(-350px);transition: all .3s ease;
@@ -52,6 +53,8 @@ export default {
     }
 }
 .menu-lists{
+    margin-top: 150px;
+
     >li{
         margin-bottom: 30px;
     }
@@ -62,5 +65,10 @@ export default {
         transition: background .3s ease-in;
         cursor: pointer;
     }
+}
+.menu-back{
+    position: absolute; bottom: 10px;right: 10px;
+    font-weight: bold;font-size: 14px;
+    cursor: pointer;
 }
 </style>
