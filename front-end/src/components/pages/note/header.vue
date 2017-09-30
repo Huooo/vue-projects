@@ -8,10 +8,13 @@
 <script>
 export default {
     name: 'note-header',
-    data: function(){
+    data () {
         return {}
     },
     methods: {
+        
+    },
+    created () { 
         
     }
 }

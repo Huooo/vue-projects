@@ -15,16 +15,16 @@
 <script>
 export default {
     name: 'note-sidebar',
-    data: function(){
+    data () {
         return {}
     },
     props: [
         'isShow'
     ],
-    created: function(){
+    methods: {
 
     },
-    methods: {
+    created () {
 
     }
 }

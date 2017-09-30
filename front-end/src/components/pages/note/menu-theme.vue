@@ -15,16 +15,19 @@
 <script>
 export default {
     name: 'note-theme',
-    data: function(){
+    data () {
         return {}
     },
     props: [
         'isShow'
     ],
     methods: {
-        switchTheme: function (color) {
+        switchTheme (color) {
             this.$store.dispatch('switch_theme', color);
         }
+    },
+    created () { 
+        
     }
 }
 </script>

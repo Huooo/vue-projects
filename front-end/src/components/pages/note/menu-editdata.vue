@@ -15,17 +15,17 @@
 <script>
 export default {
     name: 'note-editdata',
-    data: function(){
+    data () {
         return {}
     },
     props: [
         'isShow'
     ],
-    created: function(){
-
-    },
     methods: {
         
+    },
+    created () {
+
     }
 }
 </script>

@@ -1,41 +1,37 @@
 <template>
     <div class="lists-add">
-        <input @keyup.enter='submitNewList' v-model='content' type="text" class="lists-add-input" placeholder="待办事项">
+        <input @keyup.enter='submitNewList' v-model='content' :class="{'input-error': true}" class="lists-add-input" type="text" placeholder="待办事项">
         <button @click='submitNewList' class="lists-add-submit">提交</button>
-        <span v-text='test'></span>
     </div>
 </template>
 
 <script>
     export default {
-        data: function () {
+        data () {
             return {
                 content: ''
             }
         },
         computed: {
-            test: function () {
-                return JSON.stringify(this.$store.getters.getLists);
-            }
-        },
+
+        },  
         methods: {
-            submitNewList: function(){
-                var self = this,
-                    newList = {
+            submitNewList () { 
+                var newList = {
                         id: 0,
                         type: 1,
-                        content: self.content.trim(),
+                        content: this.content.trim(),
                         time: ''
                     };
 
-                if(self.content){
-                    self.$store.dispatch('addList', newList);
-                    self.content = '';
+                if( newList.content ){
+                    this.$store.dispatch('addTodo', newList);
+                    this.content = '';
                 }
             }
         },
-        mounted: function(){
-            console.log(this);
+        created () { 
+            
         }
     }
 </script>

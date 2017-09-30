@@ -17,17 +17,17 @@
 <script>
 export default {
     name: 'note-confirm',
-    data: function(){
+    data () {
         return {}
     },
     props: [
         'msg'
     ],
-    created: function(){
-
-    },
     methods: {
 
+    },
+    created () { 
+        
     }
 }
 </script>

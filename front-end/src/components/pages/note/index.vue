@@ -35,37 +35,37 @@ import nEditdata from './menu-editdata.vue';
 
 export default {
     name: 'note-index',
-    data: function () {
+    components: {
+        nHeader, nAdd, nLists, nSidebar, nConfirm, nTheme, nEditdata
+    },
+    data () {
         return {
             menus: '',
             showConfirm: false,
             confirmMsg: ''
         }
     },
-    components: {
-        nHeader, nAdd, nLists, nSidebar, nConfirm, nTheme, nEditdata
-    },
-    created: function () {
-        console.log('--- note-index ---');
-        console.log(this);
-    },
     computed: {
-        getTheme: function () { // 获取主题颜色
+        getTheme () { 
             return this.$store.getters.getTheme;
         }
     },
     methods: {
-        inputData: function () {
+        inputData () {
             this.menus = '';
             this.showConfirm = true;
             this.confirmMsg = '请上传数据文件';
         },
-        clearData: function () {
+        clearData () {
             this.menus = '';
             this.showConfirm = true;
             this.confirmMsg = '数据清除将无法恢复，确认清除吗？';
         }
-    }
+    },
+    created () {
+        console.log('------------------------ note-index ------------------------------------');
+        console.log(this);
+    },
 }
 </script>
 
