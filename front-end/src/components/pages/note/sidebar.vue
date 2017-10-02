@@ -2,7 +2,7 @@
     <div class="menu-sidebar" :class="{'fade-in': isShow}">
         <ul class='menu-lists'>
             <li><button @click='$emit("switchTheme")' class='menu-btn'>切换主题</button></li>
-            <li><button class='menu-btn'>下载数据</button></li>
+            <li><button @click="$emit('downloadData')" class='menu-btn'>下载数据</button></li>
             <li><button @click="$emit('inputData')" class='menu-btn'>导入数据</button></li>
             <li><button @click="$emit('editData')" class='menu-btn'>编辑数据</button></li>
             <li><button @click="$emit('clearData')" class='menu-btn'>清空数据</button></li>

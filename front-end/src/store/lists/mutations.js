@@ -9,6 +9,7 @@ export default {
 		states.list.unshift( obj.list );
 		func.note_storage.set( states );
 	},
+
 	EVENTDONE ( states, obj ) {
 		
 		let doneItem = null;
@@ -26,6 +27,7 @@ export default {
 		states.list.unshift( doneItem );
 		func.note_storage.set( states );
 	},
+
 	EVENTTODO ( states, obj ) {
 
 		let todoItem = null;
@@ -43,6 +45,7 @@ export default {
 		states.list.unshift( todoItem );
 		func.note_storage.set( states );
 	},
+
 	EVENTCANCEL ( states, obj ) {
 
 		let cancelItem = null;
@@ -57,6 +60,46 @@ export default {
 		}
 
 		states.list.unshift( cancelItem );
+		func.note_storage.set( states );
+	},
+
+	DATACLEAR ( states ) {
+
+		states.list = [];
+		func.note_storage.clear();
+	},
+
+	DATAINPUT ( states, data ) {
+
+		data = JSON.parse( data );
+		states.list = data.lists.list;
+		states.count = data.lists.count;
+		func.note_storage.set( states );
+	},
+
+	DATADELETE ( states, data ) {
+
+		if ( states.list[data.index].id === data.id ) {
+			states.list.splice( data.index, 1 );
+		} else {
+			states.list.filter( ( item, index ) => {
+				( item.id === data.id ) && ( states.list.splice( index, 1 ) );
+			});
+		}
+
+		func.note_storage.set( states ); 
+	},
+
+	DATAEDIT ( states, data ) {
+
+		if ( states.list[data.index].id === data.id  ) {
+			states.list[data.index].content = data.content;
+		} else {
+			states.list.filter( ( item,index ) => {
+				( item.id === data.id ) && ( item.content = data.content );
+			});
+		}
+
 		func.note_storage.set( states );
 	}
 }

@@ -4,9 +4,15 @@
             <div class="confirm-header">
                 <span class="confirm-header-title">提示</span>
             </div>  
-            <div class="confirm-content" v-text='msg'></div>
+            <div v-if="msg === 'INPUTDATA'" class="confirm-content">
+                <p><input @change="$emit('upload', $event)" type="file" accept="*.txt"></p>
+                <p>请上传此处下载的数据文件note.txt。</p>
+                <p v-if="uploadState.success" class="upload-success">文件上传成功，确认导入数据？</p>
+                <p v-if="uploadState.error" class="upload-error">请确保上传文件是从此处下载的文件。</p>
+            </div>
+            <div v-else class="confirm-content" v-text='msg'></div>
             <div class="confirm-btns">
-                <button class="sure-btn" type="button">确定</button>
+                <button @click="$emit('sure')" class="sure-btn" type="button">确定</button>
                 <button @click="$emit('cancel')" class="cancel-btn" type="button">取消</button>
             </div>
         </div>
@@ -21,7 +27,7 @@ export default {
         return {}
     },
     props: [
-        'msg'
+        'msg', 'uploadState'
     ],
     methods: {
 
@@ -64,6 +70,13 @@ export default {
     .confirm-content {
         padding: 30px 20px;
         color: #475669;font-size: 16px;text-align: center;
+
+        .upload-success{
+            color: #0b0;
+        }
+        .upload-error{
+            color: #b00;
+        }
     }
     .confirm-btns {
         padding-bottom: 10px;

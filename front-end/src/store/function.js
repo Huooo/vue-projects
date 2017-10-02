@@ -7,7 +7,7 @@ const storageEvent = function (item) {
 		localStorage.setItem(item, JSON.stringify(obj));
 	}
 	this.clear = function () {
-		localStorage.remove(item);
+		localStorage.removeItem(item);
 	}
 }
 
