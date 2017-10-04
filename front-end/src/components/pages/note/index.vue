@@ -80,7 +80,7 @@ export default {
             aTag.download = fileName;
             aTag.href = URL.createObjectURL( blob );
             aTag.click();
-            URL.revokeObjectURL( blob );
+            URL.revokeObjectURL( blob ); // 释放之前创建的blob对象
         },
         uploadData ( event ) {
 

@@ -9,13 +9,13 @@
             </div>
             
             <div v-show="!editState" class="lists-filter">
-                <select class="filter-select">
-                    <option value="">筛选类型</option>
-                    <option value="">未完成</option>
-                    <option value="">已完成</option>
-                    <option value="">已取消</option>
+                <select v-model="filterType" class="filter-select">
+                    <option value="0">筛选类型</option>
+                    <option value="1">未完成</option>
+                    <option value="2">已完成</option>
+                    <option value="3">已取消</option>
                 </select>
-                <input class="filter-input" type="text" placeholder="筛选关键词">
+                <input v-model="filterContent" class="filter-input" type="text" placeholder="筛选关键词">
             </div>
 
             <table class="lists-table">
@@ -57,7 +57,8 @@ export default {
                 id: 0,
                 content: ''
             },
-            newContent: '',
+            filterType: 0,
+            filterContent: ''
         }
     },
     props: [
@@ -65,7 +66,28 @@ export default {
     ],
     computed: {
         allLists () {
-            return this.$store.getters.getAllLists;
+            return this.$store.getters.getAllLists.filter( ( item, index ) => {
+                if( this.filterType === 0 && this.filterContent !== '' ){
+                    if( item.content.indexOf(this.filterContent) !== -1 ) {
+                        return item;
+                    }
+                } else if ( this.filterType !== 0 && this.filterContent !== '' ) {
+                    if ( item.type === this.filterType && item.content.indexOf(this.filterContent) !== -1 ) {
+                        return item;
+                    }
+                } else if ( this.filterType !== 0 && this.filterContent === '' ) {
+                    if ( item.type === this.filterType ) {
+                        return item;
+                    }
+                } else {
+                    return item;
+                }
+            });
+        }
+    },
+    watch: {
+        filterType ( newVal ) {
+            this.filterType = parseInt( newVal );
         }
     },
     filters: {
@@ -97,7 +119,6 @@ export default {
             } else {
                 this.$refs.content.focus();
             }
-            
         }
     },
     created () {
