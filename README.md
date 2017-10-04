@@ -1,5 +1,5 @@
 # Projects about Vue 
-This is a demo aim to exercise vue.
+This is a demo for exercising vue.
 
 ## Front-end
 ### According to router
